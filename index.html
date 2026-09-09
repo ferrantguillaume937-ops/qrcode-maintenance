@@ -111,15 +111,15 @@
     </button>
   </div>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
+<script>
+  const params = new URLSearchParams(window.location.search);
 
-const building = params.get("building") || "Unknown";
-const room = params.get("room") || "Unknown";
+  const building = params.get("building") || "Unknown";
+  const room = params.get("room") || "Unknown";
 
-document.getElementById("location").textContent =
-  `Building ${building} – Room ${room}`;
-  </script>
+  document.getElementById("location").textContent =
+    `Building ${building} – Room ${room}`;
+</script>
 
 </body>
 </html>
