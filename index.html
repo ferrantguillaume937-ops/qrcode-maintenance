@@ -114,11 +114,11 @@
   <script>
     const params = new URLSearchParams(window.location.search);
 
-    const building = params.get("building") || "1";
-    const room = params.get("room") || "101";
+const building = params.get("building") || "Unknown";
+const room = params.get("room") || "Unknown";
 
-    document.getElementById("location").textContent =
-      `Building ${building} - Room ${room}`;
+document.getElementById("location").textContent =
+  `Building ${building} – Room ${room}`;
   </script>
 
 </body>
