@@ -118,7 +118,40 @@
   const room = params.get("room") || "Unknown";
 
   document.getElementById("location").textContent =
-    `Building ${building} – Room ${room}`;
+    `Building ${building} - Room ${room}`;
+
+  const WEB_APP_URL =
+    "https://script.google.com/macros/s/AKfycbwWmbrIi1XKmWuaFlvjxmt239jlmWaaFtBclmFiGVAy0onakP_Za7TtuhiCc4Qwh_w/exec";
+
+  document.querySelector("button").addEventListener("click", async () => {
+    const problem = document.getElementById("problem").value;
+    const description = document.getElementById("description").value;
+
+    if (!problem || !description) {
+      alert("Please complete all fields.");
+      return;
+    }
+
+    const data = {
+      building: building,
+      room: room,
+      problem: problem,
+      description: description
+    };
+
+    try {
+      await fetch(WEB_APP_URL, {
+        method: "POST",
+        body: JSON.stringify(data)
+      });
+
+      alert("Report sent successfully!");
+
+      document.getElementById("description").value = "";
+    } catch (error) {
+      alert("Error sending report.");
+    }
+  });
 </script>
 
 </body>
